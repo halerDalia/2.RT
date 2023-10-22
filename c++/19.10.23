@@ -1,0 +1,75 @@
+#include <iostream>
+using namespace std;
+
+bool slovo(char s)
+{
+      if (s >= 'A' && s <= 'Z')
+            return 1;
+      return 0;
+}
+
+bool samoglasnik(char c)
+{
+      if (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U')
+            return 1;
+      if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
+            return 1;
+      return 0;
+}
+
+int abeceda(char a)
+{
+      return a - 'a' + 1;
+}
+
+
+bool apsolutna(int a, int b)
+{
+
+      if (a < 0)
+            a *= -1;
+      if (b < 0)
+            b *= -1;
+                  if (a == b)
+                        return 1;
+      return 0;
+}
+
+int brojznamenki(int broj)
+{
+      int Brz = 0;
+      while (broj > 0) {
+            broj = broj / 10;
+      }
+      return Brz;
+}
+
+
+int zbrojznamenki(int broj)
+{
+      int Brz = 0;
+      while (broj > 0) {
+            Brz += broj % 10;
+            broj = broj / 10;
+      }
+      return Brz;
+}
+
+bool apsolutna(int a, int b)
+if (zbrojznamenki(a) == zbrojznamenki(b))
+return 1;
+return 0;
+      
+
+
+int main()
+{
+      char c;
+      while (1) {
+            cout << "Unesi slovo:";
+            cin >> c;
+            if (samoglasnik(c))
+                  break;
+      }
+}
+
