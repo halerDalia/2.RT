@@ -1,0 +1,123 @@
+#include <iostream>
+#include <stdio.h>
+#include <cmath>
+using namespace std;
+
+
+bool Jelipravokutni(int c, int b, int a) //napiši funkciju koja za tri vrijednosti,koje predstavljaju duljinu stranice trokuta,vrati je li trokut pravokutni
+{
+ 
+	if (c * c == b * b + a * a)
+	{
+		return "trokut je pravokutni";
+	}
+		return "trokut nije pravokutni";
+
+}
+
+float povrsinaKruga (float a, float b)         //napiši funkciju koja za pravokutnik stranice a i b, vrati površinu kruga opisanog oko pravokutnika
+{
+	float d;
+	d = sqrt(a * a + b * b);
+	float r;
+	r = d / 2;
+	float povrsina;
+	povrsina = r * r * 3.14;
+	return povrsina;
+
+
+   }
+
+
+int izracunajOperaciju(int operand1, int operand2, char operacija) //napiši funkciju koja vrati rezultat operacije(+, -, / , *) koju korisnik odabere. korisnik šalje tri argumenta. operand, operand, operacija
+{
+	int r;
+	if (operacija == '+') {
+		r = operand1 + operand2;
+	}
+	else if (operacija == '-') {
+		r = operand1 - operand2;
+	}
+	else if (operacija == '*') {
+		r = operand1 * operand2;
+	}
+	else if (operacija == '/') {
+		if (operand2 != 0) {
+			r = operand1 / operand2;
+		}
+		else 
+		{ cout << "Nije moguce dijeliti s nulom "; }
+	
+	}
+	
+	return r;
+
+
+  }
+
+void dekadskiUbinarni(int broj)
+{
+	int binarniBroj = 0;
+	int pozicija = 1;
+
+	while (broj > 0) {
+		int ostatak = broj % 2;
+		binarniBroj += pozicija * ostatak;
+		broj /= 2;
+		pozicija *= 10; 
+	}
+
+cout << "Binarni broj: " << binarniBroj <<endl;
+}
+
+
+
+
+
+
+
+
+int main()
+{
+	int dekadskiBroj;
+cout << "Dekadski broj: ";
+cin >> dekadskiBroj;
+
+	dekadskiUbinarni(dekadskiBroj);
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int main()
+{
+int operand1, operand2;
+char operacija;
+
+cout << "Prvi operand: ";
+cin >> operand1;
+
+cout << "Drugi operand: ";
+cin >> operand2;
+
+cout << "Operaciju (+, -, *, /): ";
+cin >> operacija;
+
+int r = izracunajOperaciju(operand1, operand2, operacija);
+cout << "Rezultat operacije: " << r << endl;
+
+	return 0;
+}
