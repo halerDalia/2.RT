@@ -1,0 +1,52 @@
+// Haler-2.rt.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+using namespace std;
+
+float PovrsinaPravokutnika(float a, float b) // 1. izracunaj povrsinu pravokutnika
+{
+	int c = a * b;
+	return c;
+
+
+}
+
+int najveciBroj(int a, int b, int c) // 4. koji od 3 broja je najveci
+{
+	if (a < b < c)
+		return c;
+	else if (a == b < c)
+		return c;
+	else if (c > a > b)
+		return c;
+	else if (a > c > b)
+		return a;
+	else if (a > b > c)
+		return a;
+	else if (a > b == c)
+		return a;
+	else if (b > c > a)
+		return b;
+	else if (b > a > c)
+		return b;
+	else if (b > a == c)
+		return b;
+	else if (a == b == c)
+		return a = b = c;
+
+}
+
+int brojRijeci(string a) // 2. broj rijeci u stringu
+{
+	int i = 0, br = 1;
+	while (a[i] = '\0')
+	{
+		if (a[i] == ' ') br++;
+		i++;
+	}
+
+	return br;
+
+}
+
