@@ -1,0 +1,109 @@
+1. 
+int udaljenostSlova(char a, char b) {
+	if (a < b || a==b)
+		return b - a;
+	else
+		return (('z'-a) + (b-'a')) + 1;
+	
+
+	}
+
+int main()
+{
+	char s1, s2;
+	cin >> s1;
+cin >> s2;
+	int rezultat = udaljenostSlova(s1, s2);
+	cout << "Udaljenost je " << rezultat;
+}
+
+
+
+2. 
+float povrsinaPrstena(float r1, float r2)
+{
+	if (r1 > r2) {
+		return ((r1 * r1) - (r2 * r2)) * 3.14;
+	}
+	return ((r2 * r2)-(r1 * r1)) * 3.14;
+}
+
+
+int main()
+{
+	float r1, r2;
+	cin >> r1;
+	cin >> r2;
+	float rezultat = povrsinaPrstena(r1, r2);
+	cout << " Povrsina je " << rezultat;
+
+
+}
+
+
+
+3. 
+int parneZnamenke(int broj)
+{
+	int parni = 0;
+	while (broj > 0) {
+		int Brz = broj % 10;
+		if (Brz % 2 == 0) {
+			parni++;
+		}
+		broj = broj / 10;
+	}
+	return parni;
+} 
+
+
+int main()
+{
+	int broj;
+	cin >> broj;
+	int rezultat = parneZnamenke(broj);
+	cout << " Parne znamenke: " << rezultat;
+
+}
+
+
+
+4. 
+bool jeliProsti(int a)
+{
+	for (int i = 2; i < a; i++) {
+		if (a % i == 0) {
+			return 0;
+		}
+	}
+		return 1;
+	
+}
+
+
+int uneseniBrojevi(int a)
+{
+	return a;
+}
+
+
+int main()
+{
+	int brojac = 0;
+	int a;
+	cin >> a;
+	while (!jeliProsti(a))
+	{
+		cin >> a;
+		brojac++;
+	}
+	cout << brojac << " puta unesen broj ";
+}
+
+
+
+
+
+
+
+
