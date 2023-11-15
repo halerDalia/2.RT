@@ -1,0 +1,3 @@
+1.Napisi funkciju koja popuni polje dužine n nasumičnim brojevima i prebroji parne brojeve u polju
+2. Odvoji polja, jedno neka bude popunjeno s parnim brojevima, drugo s negativnim i zatim oduzmi ta dva polja
+3.  pomoću pokazivača ispiši četvrto polje dobiveno oduzimanjem prethodna dva polja
