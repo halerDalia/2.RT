@@ -20,8 +20,9 @@ cin >> s2;
 
 
 2. 
-float povrsinaPrstena(float r1, float r2)
-{
+float povrsinaPrstena(float d1, float d2)
+{       float r1=d1/2;
+        float r2=d2/2;
 	if (r1 > r2) {
 		return ((r1 * r1) - (r2 * r2)) * 3.14;
 	}
