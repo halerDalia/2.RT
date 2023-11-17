@@ -1,3 +1,89 @@
 1.Napisi funkciju koja popuni polje dužine n nasumičnim brojevima i prebroji parne brojeve u polju
 2. Odvoji polja, jedno neka bude popunjeno s parnim brojevima, drugo s negativnim i zatim oduzmi ta dva polja
 3.  pomoću pokazivača ispiši četvrto polje dobiveno oduzimanjem prethodna dva polja
+
+
+1. 
+#include <iostream>
+using namespace std;
+
+int BrojParnih(int* pp, int n) {
+    int brojac = 0;
+    for (int i = 0; i < n; i++)
+        if (*(pp + i) % 2 == 0 && *(pp + i)>=0) brojac++;
+    return brojac;
+}
+
+
+
+
+
+
+2. 
+void ParniINegativni(int* pp,int n,int*ppa,int*pne,int*br1,int*br2) {
+    for (int i = 0; i < n; i++) {
+        if (*(pp + i) % 2 == 0 && *(pp + i)>=0) {
+            *(ppa+*br1) = *(pp + i);
+            *(br1) += 1;
+        }
+        if (*(pp + i) < 0) {
+            *(pne+*br2) = *(pp + i);
+            *(br2)+= 1;
+        }
+    }
+}
+
+
+
+
+void OduzimanjePolja(int* pp, int* ppa, int* pne,int n,int br1,int br2) { 
+    int a = max(br1,br2); 
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < a; j++) {
+            if (*(pp + i) == *(ppa + j) || *(pp + i) == *(pne + j)){
+                *(pp + i) = 0;                                       
+            }
+        }
+    }
+    for (int x = 0; x < n; x++) {
+        if (*(pp + x) != 0)
+            cout << *(pp + x)<<" ";
+    }
+}
+
+
+3. 
+
+
+int main()
+{
+    int a = -50, b = 50;
+    int polje[10];
+    for (int i = 0; i < 10; i++) { 
+        polje[i] = rand() % (b - a) + a;
+    }
+    for (int i = 0; i < 10; i++) {
+        cout<<polje[i]<<" ";
+    }
+    cout << '\n';
+    cout << BrojParnih(&polje[0], 10); 
+    cout << '\n'; 
+    int br1 = 0, br2 = 0, parni[100], negativni[100]; 
+    ParniINegativni(&polje[0], 10,&parni[0],&negativni[0],&br1,&br2);
+    for (int i = 0; i < br1; i++) { 
+        cout << parni[i] << " ";
+    }
+    cout << '\n';
+    for (int i = 0; i < br2; i++) {
+        cout << negativni[i] << " ";
+    }
+    cout << '\n';
+    OduzimanjePolja(&polje[0], &parni[0], &negativni[0], 10, br1, br2); 
+
+
+}
+
+
+
+
+
