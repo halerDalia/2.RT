@@ -1,0 +1,123 @@
+#include <iostream>
+#include <stdio.h>
+#include <cmath>
+using namespace std;
+
+void referenca(int* z) // 1. f koja mijenja neku varijablu u main funkciji
+{
+    *z = 1;
+}
+
+
+void kvadratnaFunkcija(float a, float b, float c, float* x1, float* x2) // 2. f koja izračuna kvadratnu jedn.
+{
+	*x1 = (-b + (sqrt(b * b - 4 * a * c))) / (2 * a);
+	*x2= (-b - (sqrt(b * b - 4 * a * c))) / (2 * a);
+}
+
+
+int zbrojElemenata(int* pokazivac) // 3. f koja vraca zbroj 1000 elemenata polja
+{
+	int zbroj = 0;
+	for (int i = 0; i < 1000; i++)
+		zbroj += *(pokazivac + i);
+	return zbroj;
+
+}
+
+int brojPojavljivanja(int* pokazivac) // 4. f koja vrati broj pojavljivanja broja 100 kod 1000 elemenata polja
+{
+	int br100 = 0;
+	for (int i = 0; i < 1000; i++) {
+		if (pokazivac[i] == 100) {
+			br100++;
+		}
+	}
+	return br100;
+
+}
+
+
+int duljinaNiza (char* c) // 5. f koja vrati duljinu niza, znakova
+{
+	int duljina = 0;
+	for (int i = 0; *(c + i) != '\0'; i++) {
+		duljina++;
+
+	}
+	return duljina;
+}
+
+
+
+void zamijeniRazmak(char* c) // 6. f koja svaki znak razmaka zamijeni s znakom $
+{
+	for (int i = 0; *(c + i) != '\0'; i++)
+	{
+		if (*(c + i) == ' ') {
+			*(c + i) = '$';
+		}
+	}
+}
+
+
+
+
+//int main() 5.
+//{
+//	char recenica[1000];
+//
+//	cout << "Recenica: ";
+//	cin >> recenica;
+//
+//	int zbroj = duljinaNiza(recenica);
+//	cout << "Duljina: " << zbroj << endl;
+//
+//	return 0;
+//}
+
+
+
+//int main() 4. 
+//{
+//	int polje[1000];
+//	for (int i = 0; i < 1000; i++)
+//		polje[i] = i + 1;
+//	int br100 = brojPojavljivanja(polje);
+//	cout << br100;
+//}
+
+
+
+
+
+//int main() 3. 
+//{
+//	int polje[1000];
+//	for (int i = 0; i < 1000; i++)
+//		polje[i] = i + 1;
+//	int zbroj=zbrojElemenata(polje);
+//	cout << zbroj;
+//
+//}
+
+
+
+//int main() 2. 
+//{
+//	float a, b, c, x1, x2;
+//	a = 3;
+//	b = 8;
+//	c = 3;
+//	kvadratnaFunkcija(a, b, c, &x1, &x2);
+//	cout << x1;
+//}
+
+
+
+//int main() { 1. 
+	//int k; // obicna varijabla
+	//referenca(&k); // proslijeđivanje adrese varijable
+	//cout << k; // ispisivanje vrijednosti
+//	return 0;
+//}
