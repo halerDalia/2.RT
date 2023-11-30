@@ -1,0 +1,106 @@
+
+#include <iostream>
+using namespace std;
+
+int brojElemenata(int *pp)
+{
+	int broj = 0;
+	while (*pp!=0)
+	{
+		if (*pp % 4 == 0)
+		{
+			broj++;
+	}
+		pp++;
+	}
+
+}
+
+
+void smanjiZaJedan(int* pp) // f koja sve elemente pola smanji za 1
+{
+	while (*pp != 0)
+	{
+		(*pp )--;
+		pp++;
+	}
+}
+
+
+int najmanjiElement(int* pp) // f koja vrati najmanji broj u polju (pp= 123400)
+{
+	int a = *pp;
+	while (*pp != 0)
+	{
+		if (*pp < a)
+			a = *pp;
+	}
+	return a;
+
+
+}
+
+
+int znakovi(char* c) // f koja vrati broj znakova
+{
+	int duljina = 0;
+	for (int i = 0; *(c + i) != '\0'; i++) {
+		duljina++;
+
+	}
+	return duljina;
+
+}
+
+
+
+void zamijeniRazmak(char* c)
+{
+
+	for (int i = 0; *(c + i) != '\0'; i++) {
+	
+		if (*(c + i) == ' ')
+		{
+			*(c + i) = '$';
+	  }
+
+		c++;
+	}
+
+
+}
+
+
+
+bool velikaSlova(char* c) // f koja provjerava nalazi li se iza . nula.
+{
+
+	if (*c == '.')
+	{
+    
+
+ }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int main()
+{
+
+
+
+}
