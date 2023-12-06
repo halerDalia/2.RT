@@ -1,0 +1,48 @@
+#include <iostream>
+using namespace std;
+
+void rijec(char* pc) // f koja vraca rijec obrnuto napisanu
+{
+	int broj = brojElemenata(pc);
+	char pomocna = 0;
+	for (int i = 0; i<broj/2;i++)
+	{
+		pomocna = *(pc + i);
+		*(pc + i) = *(pc + broj-1);
+		*(pc + broj -1) = pomocna;
+		broj--;
+	}
+
+}
+
+
+int brojElemenata(char* pp)
+{
+	int brojac = 0;
+	for (int i = 0;*(pp + i) != '\0';i++)
+	{
+		brojac++;
+	}
+	return brojac;
+}
+
+
+void ispis(char* p)
+{
+	for (int i = 0;*(p + i) != '\0';i++)
+	{
+		cout << *(p + i);
+	}
+
+}
+
+
+
+int main()
+{
+	char p[100];
+	gets_s(p);
+	rijec(p);
+	ispis(p);
+
+}
