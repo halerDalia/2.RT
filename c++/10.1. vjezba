@@ -1,0 +1,97 @@
+#include <iostream>
+#include <stdio.h>
+#include <cmath>
+using namespace std;
+
+
+
+char posljednjeSlovo(char* pp) { //iz nekog niza vraća slovo koje je posljednje u abecedi (najbliže slovu z). Niz se sastoji samo od malih slova abecede
+    char posljednjes = 'a';  // Inicijalizirajte s 'a' kao zadnjim slovom početnim vrijednostima
+
+    for (char* p = pp; *p != '\0'; ++p) {
+        char a = *p;
+        if (a >= 'a' && a <= 'z') {
+            if (a > posljednjes) {
+                posljednjes = a;
+            }
+        }
+    }
+
+    for (char* p = pp; *p != '\0'; ++p) { // nadogradnja: posljednje slovo abecede iz niza znakova zamijeniti znakom $
+
+       if (*p == posljednjes) {
+            *p = '$';  // Prekini petlju nakon zamjene prvog po redu posljednjeg slova
+        }
+    }
+    return posljednjes;
+}
+void zamijeniMalaUVelika(char* tekst) { //mijenja mala slova u velika. Veliko slovo mora biti nakon točke u nekom nizu znakova. Nakon točke dolazi točno jedan razmak. 
+    bool zamijeni = false;
+
+    for (int i = 0; tekst[i] != '\0'; ++i) {
+        if (tekst[i] == '.') {
+            zamijeni = true;
+        }
+        else if (zamijeni && tekst[i] >= 'a' && tekst[i] <= 'z') {
+            // Ako je znak malo slovo nakon točke, zamijeni ga velikim
+            tekst[i] = tekst[i] - 'a' + 'A';
+            zamijeni = false; // Nakon zamjene, postavljamo flag na false
+        }
+    }
+}
+
+
+
+int duljinaNiza(char* c) //  f koja vrati duljinu niza, znakova
+{
+    int duljina = 0;
+    for (int i = 0; *(c + i) != '\0'; i++) {
+        duljina++;
+
+   }
+   return duljina;
+}
+
+int main() {
+    char input[] = "brza zima";
+    cout << "Prije zamjene: " << input <<endl;
+    posljednjeSlovo(input);
+    cout << "Nakon zamjene: " << input << endl;
+    return 0;
+}
+
+
+
+
+//int main() {
+//    char input[] = "sutra je zima.";
+//    char r = posljednjeSlovo(input);
+//    cout << "Posljednje slovo u abecedi je: " << r << endl;
+//
+//    return 0;
+//}
+
+//int main() {
+//    char tekst[] = " Danas je. lijep. dan.";
+//
+//   cout << "Originalni tekst: " << tekst << endl;
+//
+//    zamijeniMalaUVelika(tekst);
+//
+//    cout << "Tekst nakon zamjene: " << tekst << endl;
+//
+//    return 0;
+//}
+
+//int main()
+//{
+//	char recenica[1000];
+//
+//	cout << "Recenica: ";
+//	cin >> recenica;
+//
+//	int zbroj = duljinaNiza(recenica);
+//	cout << "Duljina: " << zbroj << endl;
+//
+//	return 0;
+//}
