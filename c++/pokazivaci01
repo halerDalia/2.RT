@@ -1,0 +1,68 @@
+#include <iostream>
+#include <stdio.h>
+#include <cmath>
+using namespace std;
+
+int drugi(char* niz, char znak) {
+    int index = 0;
+    while (*niz != '\0') {
+        if (*niz == znak) {
+            return index;
+        }
+        niz++;
+        index++;
+    }
+    return -1;
+}
+
+
+int cetvrti (int* broj) {
+    int brojac = 0;
+    int i = 0;
+
+   while (broj[i] != 0) {
+       if (broj[i] > broj[i - 1]) {
+           brojac++;
+        }
+        i++;
+    }
+
+    return brojac;
+}
+
+void treci(char* niz) {
+    while (*niz != '\0') {
+        if (*niz >= 'a' && *niz <= 'z') {
+            *niz = *niz - 32; // Zamijeni mala slova velikim slovima
+        }
+        else if (*niz >= 'A' && *niz <= 'Z') {
+            *niz = *niz + 32; // Zamijeni velika slova malim slovima
+        }
+        else {
+            *niz = '#'; // Zamijeni ostale znakove znakom #
+        }
+        niz++;
+    }
+}
+
+int main() {  // treci
+    char niz[] = "Hello World!";
+    treci(niz);
+    cout << niz << endl;
+    return 0;
+}
+int main() { // cetvrti
+   int broj[] = { 7, 7, 0 };
+  int rezultat = cetvrti(broj);
+   std::cout << "Broj elemenata vecih od prethodnika: " << rezultat << std::endl;
+
+  return 0;
+}
+
+int main() { // drugi
+   char niz[] = "sutra!";
+   char znak = 's';
+    int rezultat = drugi(niz, znak);
+   cout << "Prvo pojavljivanje znaka '" << znak << "' je na indeksu: " << rezultat << endl;
+    return 0;
+}
