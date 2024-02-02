@@ -1,0 +1,34 @@
+
+int kretanje(char* pc, int p)
+{
+	if (*pc == '#')
+		return 0;
+	char uputa = *pc;
+	*pc = '#';
+	if (uputa == 'R')
+		return 1 + kretanje(pc + 1,p);
+	if (uputa == 'L')
+		return 1 + kretanje(pc - 1,p);
+	if (uputa == 'D')
+		return 1 + kretanje(pc + p,p);
+	if (uputa == 'R')
+		return 1 + kretanje(pc - p,p);
+
+
+
+}
+
+
+
+
+
+
+int main()
+{
+	for (int i = 0; i < 6; i++) {
+		for (int j = 0; j < 6; j++;)
+			cout << kretanje(&c[i][j], 6) << endl;
+	}
+
+
+}
