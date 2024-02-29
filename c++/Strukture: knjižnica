@@ -1,0 +1,69 @@
+#include <iostream>
+using namespace std;
+
+struct Korisnik {
+    string ime;
+    string prezime;
+   
+};
+
+struct KnjiznicnaGradja {
+    string naziv;
+    string autor;
+    bool posudjena = false;
+};
+
+
+Korisnik korisnici[1000];
+KnjiznicnaGradja knjiznicnaGradja[1000];
+int brojKorisnika = 0;
+int brojKnjiga = 0;
+
+
+
+void noviKorisnik() {
+    cout << "Ime novog korisnika:";
+    cin >> korisnici[brojKorisnika].ime;
+    cout << "Prezime novog korisnika:";
+    cin >> korisnici[brojKorisnika].prezime;
+    brojKorisnika++;
+}
+
+
+void unosNoveKnjige() {
+    cout << "Naziv knjige:";
+    cin >> knjiznicnaGradja[brojKnjiga].naziv;
+    cout << "Autor knjige:";
+    cin >> knjiznicnaGradja[brojKnjiga].autor;
+    brojKnjiga++;
+}
+
+void ispisKorisnika() {
+    cout << "Popis korisnika:";
+    for (int i = 0; i < brojKorisnika; i++)
+    {
+        cout << korisnici[i].ime << " " << korisnici[i].prezime<<endl;
+    }
+}
+
+
+
+void ispisKnjizicneGradje() {
+    cout << "Popis knjiga: ";
+    for (int i = 0; i < brojKnjiga; i++)
+    {
+        cout << knjiznicnaGradja[i].naziv << " " << knjiznicnaGradja[i].autor;
+    }
+}
+
+
+
+int main()
+{
+    noviKorisnik();
+    unosNoveKnjige();
+    ispisKorisnika();
+    ispisKnjizicneGradje();
+    return 0;
+}
+
