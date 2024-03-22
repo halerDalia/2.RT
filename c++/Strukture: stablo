@@ -1,0 +1,104 @@
+#include <iostream>
+using namespace std;
+
+
+
+struct cvor {
+	int id;
+	int vr;
+	cvor* l = NULL;
+	cvor* d = NULL;
+};
+
+
+struct info {
+	int cvor.id=-1;
+	int udaljenost=0;
+};
+
+
+info trazi(cvor* c, int broj) {
+	info trenutno;
+	trenutno.cvorid = c->id;
+	trenutno.udaljenost = 1;
+
+	if (c->vrijednost == broj) {
+		return trenutno;
+	}
+
+	info lijevo;
+	if (c->l != NULL) {
+		lijevo = trazi(c->l, broj);
+	}
+
+	info desno;
+	if (c->d != NULL) {
+		desno = trazi(c->d; broj);
+	}
+
+	if (lijevo.cvorid != -1 && desno.cvorid = -1)
+	{
+		lijevo.udaljenost++;
+		desno.udaljenost++;
+	}
+	if (lijevo.udaljenost < desno.udaljenost) {
+		return lijevo;
+	}
+	return desno;
+ 
+	if (lijevo.cvorid != -1) {
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int main() {
+	cvor c1, c2, c3, c4, c5, c6, c7, c8;
+
+	c1.id = 1;
+	c1.vr = 2;
+	c1.l = &c2;
+	c1.d = &c3;
+
+	c2.id = 2;
+	c2.vr = 3;
+	c2.l = &c4;
+	c2.d = &c5;
+
+	c3.id = 3;
+	c3.vr = 4;
+	c3.l = &c6;
+	c3.d = &c7;
+
+	c4.id = 4;
+	c4.vr = 5;
+	c4.l = NULL;
+	c4.d = NULL;
+
+	c5.id = 5;
+	c5.vr = 6;
+	c5.l = NULL;
+	c5.d = NULL;
+
+	c6.id = 6;
+	c6.vr = 7;
+	c6.l = &c8;
+	c6.d = &c9;
+
+	c7.id = 7;
+	c7.vr = 8;
+	c7.l = &c10;
+	c7.d = &c11;
+}
